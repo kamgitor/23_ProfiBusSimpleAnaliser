@@ -1,0 +1,12 @@
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ResolveAssemblyReference.cache
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\Window1.baml
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\Window1.g.cs
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\App.g.cs
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser_MarkupCompile.cache
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser.g.resources
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser.Properties.Resources.resources
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser.csproj.GenerateResource.Cache
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\bin\Release\ProfiBusSimpleAnaliser.exe
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\bin\Release\ProfiBusSimpleAnaliser.pdb
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser.exe
+k:\ProjektyC#\23_ProfiBusSimpleAnaliser\ProfiBusSimpleAnaliser\obj\Release\ProfiBusSimpleAnaliser.pdb
