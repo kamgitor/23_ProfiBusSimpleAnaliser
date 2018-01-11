@@ -144,8 +144,11 @@ namespace ProfiBusSimpleAnaliser
 
 						if ((crc_l == 0) && (crc_h == 0))
 						{
-							if (ProfiFrameOk != null)
-								ProfiFrameOk(rx_buffer);		// Zgloszenie eventu
+							rx_buf_finished = new Queue<byte>(rx_buffer);
+							/*	if (ProfiFrameOk != null)
+								ProfiFrameOk(rx_buffer);		// Zgloszenie eventu	*/
+							if (rx_buf_finished != null)
+								ProfiFrameOk(rx_buf_finished);		// Zgloszenie eventu
 
 							return RX_RET_STATE.FRAME_OK;
 						}

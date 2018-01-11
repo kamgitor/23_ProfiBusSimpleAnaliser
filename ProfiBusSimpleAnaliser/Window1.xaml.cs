@@ -27,12 +27,15 @@ namespace ProfiBusSimpleAnaliser
 	{
 		ProfiBus KamSerial;
 
-		int BAUDRATE = 230400;		// 250000 orig
+		int BAUDRATE = 230400;				// 250000 orig
+		
+		// int BAUDRATE = 38400;			// 250000 orig
 
 		UInt16 CRC_ERROR_POS = 0;
 		UInt16 FRAMING_ERROR_POS = 1;
 		UInt16 UNDEFINED_ERROR_POS = 2;
 		UInt16 EXCEPTION_POS = 3;
+		// UInt16 FRAME_OK = 4;
 
 
 		public ObservableCollection<Ramka_ListItem> ListaRamek = new ObservableCollection<Ramka_ListItem>();
@@ -40,8 +43,8 @@ namespace ProfiBusSimpleAnaliser
 
 
 		// ***************************************************************
-		/// Dodaje do listy wpis - blad
-		void AddErrItemToList(string name)
+		/// Dodaje do listy wpis
+		void AddFrameItemToList(string name)
 		{
 			Ramka_ListItem item = new Ramka_ListItem();
 			item.info = name;
@@ -52,7 +55,7 @@ namespace ProfiBusSimpleAnaliser
 
 			ListaRamek.Add(item);
 
-		}	// AddErrItemToList
+		}	// AddFrameItemToList
 
 
 		// ***************************************************************
@@ -61,10 +64,11 @@ namespace ProfiBusSimpleAnaliser
 			if (ListaRamek.Count != 0)
 				ListaRamek.Clear();
 
-			AddErrItemToList("Crc Error");
-			AddErrItemToList("Framing Error");
-			AddErrItemToList("Undefined Error");
-			AddErrItemToList("Exception");
+			AddFrameItemToList("Crc Error");
+			AddFrameItemToList("Framing Error");
+			AddFrameItemToList("Undefined Error");
+			AddFrameItemToList("Exception");
+			// AddFrameItemToList("Frame OK");
 
 		}	// ResetFrameList
 
@@ -100,27 +104,37 @@ namespace ProfiBusSimpleAnaliser
 		/// Zaznaczenie checkboxa
 		private void EnableTransmisionCheckbox_Checked(object sender, RoutedEventArgs e)
 		{
-			if (EnableTransmisionCheckbox.IsChecked.Value == true)
+			if (comboBoxPorts.SelectedIndex != -1)
 			{
-				if (comboBoxPorts.SelectedIndex != -1)
+				try
 				{
 					KamSerial.PreparePort();
 					KamSerial.BaudRate = BAUDRATE;
-					
-					// KamSerial.TxRxStartProcess(ReadParamsProcess);
 				}
-				else
+				catch
 				{
-					MessageBox.Show("Wybierz port szeregowy", "Informacja");
+					MessageBox.Show("Problem z otwarciem portu", "Błąd");
 					EnableTransmisionCheckbox.IsChecked = false;
 				}
+				
+				// KamSerial.TxRxStartProcess(ReadParamsProcess);
 			}
 			else
 			{
-
+				MessageBox.Show("Wybierz port szeregowy", "Informacja");
+				EnableTransmisionCheckbox.IsChecked = false;
 			}
 
 		}	// AppInit
+
+
+		// ***************************************************************
+		// Odznaczenie checkboxa
+		private void EnableTransmisionCheckbox_Unchecked(object sender, RoutedEventArgs e)
+		{
+			KamSerial.ClosePort();
+		
+		}	// EnableTransmisionCheckbox_Unchecked
 
 
 		// ***************************************************************

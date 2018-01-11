@@ -29,7 +29,8 @@ namespace ProfiBusSimpleAnaliser
 		// private STATUS rx_status = STATUS.IDLE;
 
 		// rx data
-		protected Queue<byte> rx_buffer = null;		// Kolejka odbiorcza
+		protected Queue<byte> rx_buffer = null;			// Kolejka odbiorcza
+		protected Queue<byte> rx_buf_finished = null;	// Gotowa ramka
 		// private rx_ext_funct rx_funct;
 
 		// ***************************************************************************
@@ -38,6 +39,7 @@ namespace ProfiBusSimpleAnaliser
 			combobox = combo;
 			serial = new SerialPort();
 			rx_buffer = new Queue<byte>();
+			// rx_buf_finished = new Queue<byte>();		nie potrzebne
 
 			InitSerialComboBox();
 
@@ -221,6 +223,14 @@ namespace ProfiBusSimpleAnaliser
 
 		}	// GetComboboxPos
 
+
+		// ***************************************************************************
+		public void ClosePort()
+		{
+			if (serial.IsOpen)
+				serial.Close();
+
+		}	// ClosePort
 
 		/*
 
